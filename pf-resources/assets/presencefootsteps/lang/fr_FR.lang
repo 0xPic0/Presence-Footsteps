@@ -1,0 +1,43 @@
+menu.pf.title=Configuration Presence Footsteps
+
+menu.pf.on=On
+menu.pf.off=Off
+
+menu.pf.multiplayer.on=Mode: Multijoueur
+menu.pf.multiplayer.off=Mode: Solo
+
+menu.pf.volume.min=Minimum
+menu.pf.volume.max=Maximum
+menu.pf.volume=Volume
+
+menu.pf.resourcepacks.loaded=Configurer le Resource Pack
+menu.pf.resourcepacks.disabled=Activer le Resource Pack
+menu.pf.resourcepacks.none=Installer le Resource Pack
+
+menu.pf.stance=Walking Stance
+menu.pf.stance.0=AUTO
+menu.pf.stance.1=Quadriped
+menu.pf.stance.2=Biped
+menu.pf.stance.3=Quad (Pegasus)
+
+menu.pf.report.full=Générer le rapport complet du block
+menu.pf.report.concise=Générer le rapport des blocks inconnus
+
+menu.pf.warn.0=Votre Resource Pack Presence Footsteps n'est pas encore activé!
+menu.pf.warn.1=Activer le dans le menu Options de Minecraft pour le faire fonctionner.
+menu.pf.warn.2=Vous n'avez aucun Resource Pack Presence Footsteps d'installé!
+menu.pf.warn.3=Placer le Resource Pack dans le dossier resourcepacks/.
+
+pf.pack.disabled.0=Le Resource Pack n'est pas encore activé!
+pf.pack.disabled.1=Vous devez activer le "Resource Pack Presence Footsteps" dans le menu Options de Minecraft pour le faire fonctionner.
+pf.pack.0=Le Resource Pack est manquant dans resourcepacks/!
+pf.pack.1=Vous avez peut-être oublié de placer le ficher Resource Pack dans le dossier resourcepacks/.
+pf.pack.yay=Cela devrait fonctionner maintenant!
+
+pf.debug.off=Mode Debug Désactivé
+pf.debug.on=Mode Debug Activé
+
+pf.report.save=Fichier sauvegardé en tant que: %s
+pf.report.error=Problème pour générer le rapport: %s
+
+key.presencefootsteps=Presence Footsteps

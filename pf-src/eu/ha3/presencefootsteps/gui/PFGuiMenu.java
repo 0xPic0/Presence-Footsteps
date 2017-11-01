@@ -148,14 +148,14 @@ public class PFGuiMenu extends GuiScreen {
 	@Override
 	public void drawScreen(int mouseX, int mouseY, float partialTicks) {
 		drawDefaultBackground();
-		drawCenteredString(fontRendererObj, screenTitle, width / 2, 40, 0xffffff);
+		drawCenteredString(fontRenderer, screenTitle, width / 2, 40, 0xffffff);
 		if (!mod.hasResourcePacksLoaded()) {
 			if (mod.hasResourcePacksInstalled()) {
-				drawCenteredString(fontRendererObj, I18n.format("menu.pf.warn.0"), width / 2, 10, 0xff0000);
-				drawCenteredString(fontRendererObj, I18n.format("menu.pf.warn.1"), width / 2, 20, 0xff0000);
+				drawCenteredString(fontRenderer, I18n.format("menu.pf.warn.0"), width / 2, 10, 0xff0000);
+				drawCenteredString(fontRenderer, I18n.format("menu.pf.warn.1"), width / 2, 20, 0xff0000);
 			} else {
-				drawCenteredString(fontRendererObj, I18n.format("menu.pf.warn.2"), width / 2, 10, 0xff0000);
-				drawCenteredString(fontRendererObj, I18n.format("menu.pf.warn.3"), width / 2, 20, 0xff0000);
+				drawCenteredString(fontRenderer, I18n.format("menu.pf.warn.2"), width / 2, 10, 0xff0000);
+				drawCenteredString(fontRenderer, I18n.format("menu.pf.warn.3"), width / 2, 20, 0xff0000);
 			}
 		}
 		super.drawScreen(mouseX, mouseY, partialTicks);

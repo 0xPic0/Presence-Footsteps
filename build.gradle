@@ -15,7 +15,7 @@ buildscript {
 		}
 	}
 	dependencies {
-		classpath 'net.minecraftforge.gradle:ForgeGradle:2.2-SNAPSHOT'
+		classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
 		classpath 'com.github.jengelman.gradle.plugins:shadow:1.2.0'
 		classpath 'org.spongepowered:mixingradle:0.4-SNAPSHOT'
 	}
@@ -23,14 +23,13 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle.liteloader'
 apply plugin: 'org.spongepowered.mixin'
 
-sourceCompatibility = 1.6
-targetCompatibility = 1.6
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 sourceSets {
 	main {
 		java {
 			srcDir "lib/MC-Commons/mc-src"
 			srcDir "pf-src"
-			srcDir "minelp_dummy"
 		}
 		resources {
 			srcDirs "pf-resources"

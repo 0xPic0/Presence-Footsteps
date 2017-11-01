@@ -85,7 +85,7 @@ public class BlockReport {
 		if (block instanceof BlockRotatedPillar) soundName += "," + "EXTENDS_PILLAR";
 		if (block instanceof BlockTorch) soundName += "," + "EXTENDS_TORCH";
 		if (block instanceof BlockCarpet) soundName += "," + "EXTENDS_CARPET";
-		if (!block.getDefaultState().isFullyOpaque()) soundName += "," + "HITBOX";
+		if (!block.getDefaultState().isOpaqueCube()) soundName += "," + "HITBOX";
 		return soundName;
 	}
 	

@@ -58,7 +58,6 @@ import eu.ha3.presencefootsteps.resources.AcousticsJsonReader;
 import eu.ha3.presencefootsteps.resources.BlockMapReader;
 import eu.ha3.presencefootsteps.resources.PFResourcePackDealer;
 import eu.ha3.presencefootsteps.resources.PrimitiveMapReader;
-import eu.ha3.presencefootsteps.util.MineLittlePonyCommunicator;
 import eu.ha3.util.property.simple.ConfigProperty;
 import eu.ha3.util.property.simple.InputStreamConfigProperty;
 
@@ -68,8 +67,8 @@ public class PFHaddon extends HaddonImpl implements SupportsFrameEvents, Support
 	
 	// Identity
 	protected final String NAME = "Presence Footsteps";
-	protected final int VERSION = 11;
-	protected final String MCVERSION = "1.10";
+	protected final int VERSION = 12;
+	protected final String MCVERSION = "1.12";
 	protected final String ADDRESS = "http://presencefootsteps.ha3.eu";
 	protected final Identity identity = (new HaddonIdentity(NAME, VERSION, MCVERSION, ADDRESS)).setPrefix("u");
 	
@@ -102,10 +101,7 @@ public class PFHaddon extends HaddonImpl implements SupportsFrameEvents, Support
 	private boolean hasResourcePacks;
 	private boolean hasDisabledResourcePacks;
 	private boolean hasResourcePacks_FixMe;
-	
-	// Pony stuff
-	private boolean mlpDetectedFirst;
-	
+
 	public PFHaddon() {
 		INSTANCE = this;
 	}
@@ -113,11 +109,11 @@ public class PFHaddon extends HaddonImpl implements SupportsFrameEvents, Support
 	@Override
 	public void onLoad() {
 		//http://q.mc.ha3.eu/query/pf-litemod-version.json
-		updateNotifier = new UpdateNotifier(this, "https://raw.githubusercontent.com/Sollace/Presence-Footsteps/master/version/versions.json?ver=%d");
+		updateNotifier = new UpdateNotifier(this, "https://raw.githubusercontent.com/ndousson/Presence-Footsteps/master/version/versions.json?ver=%d");
 		
-		util().registerPrivateSetter("Entity_nextStepDistance", Entity.class, -1, "nextStepDistance", "field_70150_b", "ax");
-		util().registerPrivateGetter("isJumping", EntityLivingBase.class, -1, "isJumping", "field_70703_bu", "be");
-		
+		util().registerPrivateSetter("Entity_nextStepDistance", Entity.class, -1, "nextStepDistance", "field_70150_b", "ay");
+		util().registerPrivateGetter("isJumping", EntityLivingBase.class, -1, "isJumping", "field_70703_bu", "bf");
+
 		presenceDir = new File(util().getMcFolder(), "presencefootsteps");
 		if (!presenceDir.exists()) presenceDir.mkdirs();
 		
@@ -144,14 +140,6 @@ public class PFHaddon extends HaddonImpl implements SupportsFrameEvents, Support
 		});
 		
 		reloadEverything(false);// Config is loaded here
-		
-		if (mlpInstalled()) {
-			if (getConfig().getBoolean("mlp.detected") == false) {
-				getConfig().setProperty("mlp.detected", true);
-				saveConfig();
-				mlpDetectedFirst = true;
-			}
-		}
 		
 		keyBindingMain = new KeyBinding("key.presencefootsteps", keyBindDefaultCode, "key.categories.misc");
 		util().getClient().addKeyBinding(keyBindingMain);
@@ -328,10 +316,6 @@ public class PFHaddon extends HaddonImpl implements SupportsFrameEvents, Support
 		isolator.setDefaultStepPlayer(acoustics);
 	}
 	
-	public boolean mlpInstalled() {
-		return MineLittlePonyCommunicator.instance.ponyModInstalled();
-	}
-	
 	public boolean getEnabledMP() {
 		return enableMP;
 	}
@@ -440,16 +424,7 @@ public class PFHaddon extends HaddonImpl implements SupportsFrameEvents, Support
 		if (!firstTickPassed) {
 			firstTickPassed = true;
 			updateNotifier.attempt();
-			if (mlpDetectedFirst) {
-				chatter.printChat(TextFormatting.AQUA, "pf.mlp.0");
-				chatter.printChatShort("pf.mlp.1");
-				if (getConfig().getInteger("custom.stance") == 0) {
-					chatter.printChatShort(TextFormatting.GRAY, keyBindingMain.getKeyCode() == 0 ? "pf.mlp.2.stance" : "pf.mlp.2.stance.button", Keyboard.getKeyName(keyBindingMain.getKeyCode()));
-				} else {
-					chatter.printChatShort(TextFormatting.GRAY, keyBindingMain.getKeyCode() == 0 ? "pf.mlp.2" : "pf.mlp.2.button", Keyboard.getKeyName(keyBindingMain.getKeyCode()));
-				}
-			}
-			
+
 			if (!hasResourcePacks) {
 				hasResourcePacks_FixMe = true;
 				if (hasDisabledResourcePacks) {
