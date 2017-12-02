@@ -17,7 +17,7 @@ buildscript {
 	dependencies {
 		classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
 		classpath 'com.github.jengelman.gradle.plugins:shadow:1.2.0'
-		classpath 'org.spongepowered:mixingradle:0.4-SNAPSHOT'
+		classpath 'org.spongepowered:mixingradle:0.5-SNAPSHOT'
 	}
 }
 apply plugin: 'net.minecraftforge.gradle.liteloader'
@@ -34,7 +34,7 @@ sourceSets {
 		resources {
 			srcDirs "pf-resources"
 		}
-		refMap = "mixins.presencefootsteps.refmap.json"
+		ext.refMap = "mixins.presencefootsteps.refmap.json"
 	}
 }
 
