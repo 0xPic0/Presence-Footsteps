@@ -23,7 +23,11 @@ Libraries required before compiling this project:
 
 # TODO
 
-- Nothing
+- Fix crash when isJumping is called (can't access property from inherited class with reflection)
+
+```
+java.lang.RuntimeException: eu.ha3.mc.haddon.PrivateAccessException: isJumping(field_70703_bu,isJumping,[-1]) could not be resolved
+```
 
 # Installation (IntelliJ IDEA)
 

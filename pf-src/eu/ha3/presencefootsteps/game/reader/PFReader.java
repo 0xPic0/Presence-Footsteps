@@ -1,6 +1,9 @@
 package eu.ha3.presencefootsteps.game.reader;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityOtherPlayerMP;
+import net.minecraft.client.entity.EntityPlayerSP;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.MathHelper;
 import eu.ha3.mc.haddon.Utility;
@@ -252,7 +255,7 @@ public class PFReader implements Generator, VariatorSettable {
 	
 	protected boolean isJumping(EntityPlayer ply) {
 		try {
-			return (Boolean)util.getPrivate(ply, "isJumping");
+			return (Boolean)this.util.getPrivate(ply, "isJumping");
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);

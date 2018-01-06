@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 
+import eu.ha3.mc.haddon.Utility;
+import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.resources.IResourceManager;
 import net.minecraft.client.resources.IResourceManagerReloadListener;
 import net.minecraft.client.resources.ResourcePackRepository;
@@ -110,9 +112,9 @@ public class PFHaddon extends HaddonImpl implements SupportsFrameEvents, Support
 	public void onLoad() {
 		//http://q.mc.ha3.eu/query/pf-litemod-version.json
 		updateNotifier = new UpdateNotifier(this, "https://raw.githubusercontent.com/ndousson/Presence-Footsteps/master/version/versions.json?ver=%d");
-		
+
 		util().registerPrivateSetter("nextStepDistance", Entity.class, -1, "nextStepDistance", "field_70150_b");
-		util().registerPrivateGetter("isJumping", EntityLivingBase.class, -1, "isJumping");
+		util().registerPrivateGetter("isJumping", EntityLivingBase.class, -1, "isJumping", "field_70703_bu");
 
 		presenceDir = new File(util().getMcFolder(), "presencefootsteps");
 		if (!presenceDir.exists()) presenceDir.mkdirs();
