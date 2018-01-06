@@ -74,7 +74,7 @@ public class PFHaddon extends HaddonImpl implements SupportsFrameEvents, Support
 	
 	// NotifiableHaddon and UpdateNotifier
 	private ConfigProperty config; // Can't be final
-	private final Chatter chatter = new Chatter(this, "<PF> ");
+	private final Chatter chatter = new Chatter(this, "Presence Footstep : ");
 	private Updater updateNotifier;
 	
 	// Meta
@@ -112,7 +112,7 @@ public class PFHaddon extends HaddonImpl implements SupportsFrameEvents, Support
 		updateNotifier = new UpdateNotifier(this, "https://raw.githubusercontent.com/ndousson/Presence-Footsteps/master/version/versions.json?ver=%d");
 		
 		util().registerPrivateSetter("nextStepDistance", Entity.class, -1, "nextStepDistance", "field_70150_b");
-		util().registerPrivateGetter("isJumping", EntityLivingBase.class, -1, "isJumping", "field_70703_bu");
+		util().registerPrivateGetter("isJumping", EntityLivingBase.class, -1, "isJumping");
 
 		presenceDir = new File(util().getMcFolder(), "presencefootsteps");
 		if (!presenceDir.exists()) presenceDir.mkdirs();
@@ -141,7 +141,7 @@ public class PFHaddon extends HaddonImpl implements SupportsFrameEvents, Support
 		
 		reloadEverything(false);// Config is loaded here
 		
-		keyBindingMain = new KeyBinding("key.presencefootsteps", keyBindDefaultCode, "key.categories.misc");
+		keyBindingMain = new KeyBinding("key.presenceFootsteps", keyBindDefaultCode, "key.categories.misc");
 		util().getClient().addKeyBinding(keyBindingMain);
 		keyBindingMain.setKeyCode(getConfig().getInteger("key.code"));
 		watcher.add(keyBindingMain);

@@ -23,15 +23,7 @@ Libraries required before compiling this project:
 
 # TODO
 
-- Fix loading lang (no lang is working)
-- Fix crash when player is jumping (no method isJumping, cf. error below)
-
-```
-Nov 01, 2017 4:03:30 PM eu.ha3.mc.haddon.implem.HaddonPrivateEntry get
-INFO: (Haddon) PrivateEntry isJumping cannot resolve bf
-Nov 01, 2017 4:03:30 PM eu.ha3.mc.haddon.implem.HaddonPrivateEntry get
-INFO: (Haddon) PrivateEntry isJumping cannot resolve field_70703_bu
-```
+- Nothing
 
 # Installation (IntelliJ IDEA)
 
